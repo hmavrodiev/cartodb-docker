@@ -14,7 +14,7 @@ sudo docker run -d -p 80:80 -h 35.227.102.157 sverhoeven/cartodb
 
 
 sudo docker create --name cartodb_pgdata sverhoeven/cartodb  
-# Change to directory to save the Postgresql data dir (cartodb_pgdata) of the CartoDB image  
+---# Change to directory to save the Postgresql data dir (cartodb_pgdata) of the CartoDB image  
 sudo docker cp cartodb_pgdata:/var/lib/postgresql $PWD/cartodb_pgdata  
 sudo docker rm -f cartodb_pgdata  
 
