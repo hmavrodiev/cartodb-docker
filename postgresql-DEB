@@ -1,5 +1,7 @@
 DEBIAN 9
 
+sudo passwd
+
 wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -  
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'  
 sudo apt-get update  
@@ -8,3 +10,12 @@ sudo su - postgres
 psql  
 \password postgres
 \q  
+
+
+nano /var/lib/pgsql/data/postgresql.conf
+#listen_addresses = "*"
+
+nano /var/lib/pgsql/data/pg_hba.conf
+host all all 0.0.0.0/0 md5
+
+sudo service postgresql restart
